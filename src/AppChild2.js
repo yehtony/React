@@ -1,22 +1,23 @@
 import React from 'react';
+//import {nanoid} from 'nanoid';
 
 function Tasklist(props) {
-    let listchoice = [];
-    switch (props.list.filter) {
-        case "all":
-            listchoice = props.list.alllist;
-            break
-        case "todo":
-            listchoice = props.list.todolist;
-            break
-        case "done":
-            listchoice = props.list.donelist;
-            break
+    let list = [];
+    switch (props.filter) {
+        case "All":
+            list = props.list;
+            break;
+        case "Todo":
+            list = props.list.filter(value => value.complete === false);
+            break;
+        case "Done":
+            list = props.list.filter(value => value.complete === true);
+            break;
         default:
-            listchoice = props.list.alllist;
+            list = props.list;
     }
-
-    const secondlist = listchoice.map(value => <Task key={value} task={value} />)
+    //(console.log(props.filter));
+    const secondlist = list.map(value => <Task key={value.name} task={value.name} delete={props.delete} />)
     return (
         <div className='taskblock'>
             {secondlist}
@@ -30,8 +31,8 @@ function Task(props) {
             <input type="checkbox" />
             <b>{props.task}</b>
             <button>Edit</button>
-            <button>Delete</button>
-        </div>
+            <button onClick={() => { props.delete(props.task); console.log(props.task) }}> Delete</button>
+        </div >
     );
 }
 

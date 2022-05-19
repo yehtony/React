@@ -1,15 +1,16 @@
 import React from 'react';
+import { nanoid } from 'nanoid';
 //import AppChild2 from './AppChild2.js';
 
 function Todolist(props) {
-    //const firstlist = props.buttonone.map(value => <Showbutton filter={props.filter} key={value} buttonone={value} />);
+    const filterbutton = props.buttonone.map(value => <Showbutton filter={props.filter} key={value} buttonone={value} />);
     return (
         <div className='classify'>
             <div >
                 {/*<button onClick={()=> props.inputitem("123")}>123</button>*/}
                 <Inputtask inputitem={props.inputitem} />
             </div>
-            <Showbutton filter={props.filter} />
+            {filterbutton}
         </div>
     )
 }
@@ -25,12 +26,10 @@ function Inputtask(props) {
 
 function Showbutton(props) {
     return (
-        <div >
-            <button onClick={() => props.filter("all")}>All</ button >
-            <button onClick={() => props.filter("todo")}>Todo</ button>
-            <button onClick={() => props.filter("done")}>Done</ button>
-            {/*<button onClick={() => { props.filter({props.buttonone}) }}> {props.buttonone}</ button >*/}
-        </div>
+        /*<div><button onClick={() => props.filter("all")}>All</ button >
+        <button onClick={() => props.filter("todo")}>Todo</ button>
+        <button onClick={() => props.filter("done")}>Done</ button></div>*/
+        <button onClick={() => { props.filter(props.buttonone); console.log(props.buttonone) }}>{props.buttonone}</ button >
     )
 }
 

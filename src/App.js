@@ -3,6 +3,7 @@ import React from 'react';
 import AppChild from './AppChild.js';
 import AppChild2 from './AppChild2.js';
 import './App.css';
+import { nanoid } from 'nanoid';
 //import Test from './Test.js';
 
 
@@ -10,26 +11,33 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: "all",
+      tasklist: [{ id: nanoid(), name: "Database System", complete: false }, { id: nanoid(), name: "Tecnology Support", complete: false }, { id: nanoid(), name: "Visual analysis", complete: false }, { id: nanoid(), name: "Seminar", complete: false }],
+      filter: "All",
       //name: "初始值",
-      //displaybutton: ["All", "Todo", "Done"],
-      alllist: ["資料庫", "科技創新", "視覺化", "書報討論", "Meet"],
-      todolist: ["資料庫", "科技創新", "視覺化", "書報討論"],
-      donelist: ["Meet"]
+      displaybutton: ["All", "Todo", "Done"],
+      //alllist: ["資料庫", "科技創新", "視覺化", "書報討論", "Meet"],
+      //todolist: ["資料庫", "科技創新", "視覺化", "書報討論"],
+      //donelist: ["Meet"]
     }
-    this.addtask = this.addtask.bind(this);
+    this.adder = this.adder.bind(this);
     this.filterer = this.filterer.bind(this);
+    this.deleter = this.deleter.bind(this);
   }
 
-  addtask(target) {
+  adder(target) {
     if (target.trim() !== "") {
-      const alllist = this.state.alllist;
-      this.setState({ alllist: [...alllist, target] });
+      const addtasklist = this.state.tasklist;
+      this.setState({ tasklist: [...addtasklist, { id: nanoid(), name: target, complete: false }] });
     }
   }
 
   filterer(target) {
-    this.setState({ filter: target});
+    this.setState({ filter: target });
+  }
+
+  deleter(target) {
+    const deletetasklist = this.state.tasklist;
+    this.setState({ tasklist: deletetasklist.filter(value => value.name !== target) });
   }
 
   render() {
@@ -37,10 +45,10 @@ class App extends React.Component {
       <div className='nav'>
         <div className='title'>To DO List</div>
         <div>
-          <AppChild inputitem={this.addtask} buttonone={this.state.displaybutton} filter={this.filterer} />
+          <AppChild inputitem={this.adder} buttonone={this.state.displaybutton} filter={this.filterer} />
         </div>
         <div>
-          <AppChild2 list={this.state} />
+          <AppChild2 list={this.state.tasklist} filter={this.state.filter} delete={this.deleter} />
         </div>
       </div>
     )
