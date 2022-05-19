@@ -1,4 +1,44 @@
-.App {
+.nav {
+  width: 800px;
+  height: fit-content;
+  margin: auto;
+  border: 5px solid;
+  border-radius: 5px;
+  text-align: left;
+  font-size: x-large;
+}
+
+.title {
+  padding: 10px;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.tasklist {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 10% 36% 7.5% 11%;
+}
+
+.classify {
+  padding: 10px;
+  background-color: mediumturquoise;
+}
+
+.taskblock {
+  padding: 10px;
+  background: linear-gradient(to right, cornflowerblue, skyblue);
+}
+
+button {
+  font-size: x-large;
+}
+
+input {
+  font-size: x-large;
+}
+
+/*.App {
   text-align: center;
 }
 
@@ -35,4 +75,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+}*/

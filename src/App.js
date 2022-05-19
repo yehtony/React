@@ -10,34 +10,37 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "初始值",
-      displaybutton: ["All", "Todo", "Done"],
-      tasklist: ["資料庫", "科技創新", "視覺化", "書報討論"],
-      alllist: ["資料庫", "科技創新", "視覺化", "書報討論"],
+      filter: "all",
+      //name: "初始值",
+      //displaybutton: ["All", "Todo", "Done"],
+      alllist: ["資料庫", "科技創新", "視覺化", "書報討論", "Meet"],
       todolist: ["資料庫", "科技創新", "視覺化", "書報討論"],
-      donelist: []
+      donelist: ["Meet"]
     }
-    this.changename = this.changename.bind(this);
+    this.addtask = this.addtask.bind(this);
+    this.filterer = this.filterer.bind(this);
   }
 
-  changename(target) {
-    const tasklist = this.state.tasklist;
-    this.setState({ tasklist: [...tasklist, target] });
+  addtask(target) {
+    if (target.trim() !== "") {
+      const alllist = this.state.alllist;
+      this.setState({ alllist: [...alllist, target] });
+    }
+  }
+
+  filterer(target) {
+    this.setState({ filter: target});
   }
 
   render() {
     return (
-      <div>
-        <p>To DO List</p>
+      <div className='nav'>
+        <div className='title'>To DO List</div>
         <div>
-          <p>
-            <AppChild varable={this.changename} buttonone={this.state.displaybutton} />
-          </p>
+          <AppChild inputitem={this.addtask} buttonone={this.state.displaybutton} filter={this.filterer} />
         </div>
         <div>
-          <p>
-            <AppChild2 task={this.state.tasklist} />
-          </p>
+          <AppChild2 list={this.state} />
         </div>
       </div>
     )
