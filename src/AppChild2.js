@@ -17,7 +17,7 @@ function Tasklist(props) {
             list = props.list;
     }
     //(console.log(props.filter));
-    const secondlist = list.map(value => <Task key={value.name} task={value.name} delete={props.delete} />)
+    const secondlist = list.map(value => <Task key={value.name} id={value.id} task={value.name} delete={props.delete} checks={props.checks} />)
     return (
         <div className='taskblock'>
             {secondlist}
@@ -28,10 +28,10 @@ function Tasklist(props) {
 function Task(props) {
     return (
         <div className='tasklist'>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={() => { props.checks(props.id) }} />
             <b>{props.task}</b>
             <button>Edit</button>
-            <button onClick={() => { props.delete(props.task); console.log(props.task) }}> Delete</button>
+            <button onClick={() => { props.delete(props.id); console.log(props.task) }}> Delete</button>
         </div >
     );
 }

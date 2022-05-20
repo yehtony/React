@@ -1,6 +1,5 @@
 import React from 'react';
-import { nanoid } from 'nanoid';
-//import AppChild2 from './AppChild2.js';
+//import { nanoid } from 'nanoid';
 
 function Todolist(props) {
     const filterbutton = props.buttonone.map(value => <Showbutton filter={props.filter} key={value} buttonone={value} />);
@@ -18,8 +17,8 @@ function Todolist(props) {
 function Inputtask(props) {
     return (
         <div>
-            <input type="text" id="inputtask" placeholder={"Add new task ..."} onChange={(e) => console.log(e.target.value)} />
-            <button onClick={() => { props.inputitem(document.getElementById("inputtask").value); document.getElementById("inputtask").value = "" }}> Add</button>
+            <input type="text" id="inputtask" placeholder={"Add new task ..."} />
+            <button onClick={() => { console.log(document.getElementById("inputtask").value); props.inputitem(document.getElementById("inputtask").value); document.getElementById("inputtask").value = "" }}> Add</button>
         </div >
     )
 }
