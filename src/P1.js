@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 class P1 extends React.Component {
   constructor(props) {
@@ -24,10 +24,6 @@ class P1 extends React.Component {
           <div className="progress-bar" style={{ backgroundColor: "#fe5196", width: this.state.percent, height: "100%", borderRadius: "10px" }}></div>
         </div>
         <button onClick={this.changePercent}>Change percent</button>
-        <nav>
-          <Link to="/01">click to page1</Link>
-          <Link to="/02" style={{ marginLeft: "20px" }}>click to page2</Link>
-        </nav>
       </div>
     );
   }

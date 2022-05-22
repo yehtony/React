@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 class P2 extends React.Component {
     constructor(props) {
@@ -31,10 +31,6 @@ class P2 extends React.Component {
                     {(this.state.repoName === null) ? "目前還有沒有資料" : this.state.repoName}
                 </div>
                 <button onClick={this.handleClick}>取得Me以英文字母排序的第一個repo</button>
-                <nav>
-                    <Link to="/01">click to page1</Link>
-                    <Link to="/02" style={{ marginLeft: "20px" }}>click to page2</Link>
-                </nav>
             </div>
         )
     }
