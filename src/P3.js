@@ -35,7 +35,6 @@ class Baby extends React.Component {
         this.scrollTo();  // 觸發開場動畫
     }
 
-
     render() {
         return (
             <div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import P1 from './P1.js';
 import P2 from './P2.js';
 import P3 from './P3.js';
+import P4p from './P4p.js';
 
 
 function Layout(props) {
@@ -12,6 +13,7 @@ function Layout(props) {
                 <button><Link to='/01'>Page1</Link></button>
                 <button><Link to='/02'>Page2</Link></button>
                 <button><Link to='/03'>Page3</Link></button>
+                <button><Link to='/04'>Page4</Link></button>
             </nav>
             {props.children}
         </div>
@@ -27,8 +29,10 @@ function App() {
                     <Route exact path='/01' element={<Layout><P1 /></Layout>} />
                     <Route exact path='/02' element={<Layout><P2 /></Layout>} />
                     <Route exact path='/03' element={<Layout><P3 /></Layout>} />
+                    <Route exact path='/04' element={<Layout><P4p /></Layout>} />
                 </Routes>
             </HashRouter>
+            <div id='magic'></div>
         </div>
     )
 }
