@@ -4,19 +4,29 @@ class P4c extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            appear2: true
+            text: 0
         }
     }
 
     componentDidMount() {
-        document.getElementById('magic').append("magic")
+        document.getElementById('magic').append("showNumber")
     }
     componentWillUnmount() {
         document.getElementById('magic').innerHTML = "";
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.appear2 !== this.props.appear2)
+            this.setState({ text: this.state.text + 1 })
+    }
+
+
     render() {
-        return
+        return (
+            <div>
+                <div>{this.state.text}</div>
+            </div>
+        )
     }
 }
 
