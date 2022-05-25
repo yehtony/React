@@ -1,7 +1,7 @@
 import React from 'react';
 //import { Link } from 'react-router-dom';
 
-class P2 extends React.Component {
+class Fetch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,7 +26,7 @@ class P2 extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div>
                 <div className="data-display">
                     {(this.state.repoName === null) ? "目前還有沒有資料" : this.state.repoName}
                 </div>
@@ -36,4 +36,4 @@ class P2 extends React.Component {
     }
 };
 
-export default P2;
+export default Fetch;

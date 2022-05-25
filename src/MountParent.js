@@ -1,8 +1,8 @@
 import React from 'react';
-import P4c from './P4c.js';
+import MountChild from './MountChild';
 
 
-class P4p extends React.Component {
+class MountParent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ class P4p extends React.Component {
 
     magic() {
         if (this.state.appear)
-            return <P4c appear2={this.state.appear2} />
+            return <MountChild appear2={this.state.appear2} />
     }
 
     render() {
@@ -37,4 +37,4 @@ class P4p extends React.Component {
     }
 }
 
-export default P4p; 
+export default MountParent; 

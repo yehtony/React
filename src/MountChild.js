@@ -1,6 +1,6 @@
 import React from 'react';
 
-class P4c extends React.Component {
+class MountChild extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,12 +14,10 @@ class P4c extends React.Component {
     componentWillUnmount() {
         document.getElementById('magic').innerHTML = "";
     }
-
     componentDidUpdate(prevProps) {
         if (prevProps.appear2 !== this.props.appear2)
             this.setState({ text: this.state.text + 1 })
     }
-
 
     render() {
         return (
@@ -30,4 +28,4 @@ class P4c extends React.Component {
     }
 }
 
-export default P4c; 
+export default MountChild; 

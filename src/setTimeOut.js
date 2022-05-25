@@ -2,7 +2,7 @@ import React from 'react';
 
 //code使用其他程式修改，函式、參數名稱並不代表其此code意思，僅套用其功能
 
-class Baby extends React.Component {
+class setTimeOut extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -51,4 +51,4 @@ class Baby extends React.Component {
 
     }
 }
-export default Baby;
+export default setTimeOut;

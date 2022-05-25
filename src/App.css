@@ -32,7 +32,17 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  background-color: white;
+}
+
+nav {
+  height: 30px;
+  background-color: #41aaeb;
 }
